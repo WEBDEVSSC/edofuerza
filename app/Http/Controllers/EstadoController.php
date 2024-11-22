@@ -204,7 +204,7 @@ class EstadoController extends Controller
         $bitacora->save();
 
         // Enviamos el correo de alerta sobre el nuevo evento
-        $destinatarios = ['cesartorres.1688@gmail.com'];
+        $destinatarios = ['cesartorres.1688@gmail.com','segundonivel.ssc@gmail.com'];
         Mail::to($destinatarios)->send(new BitacoraNuevo($bitacora));
 
         // Redireccionamos a la vista
