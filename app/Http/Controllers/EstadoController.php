@@ -140,10 +140,10 @@ class EstadoController extends Controller
 
         // Consultamos los datos del usuario
 
-        $userUnidad = auth()->user()->unidad;
-        $userResponsable = auth()->user()->responsable;
-        $userResponsableId = auth()->user()->id;
-        $userTurno = auth()->user()->turno;
+        $userUnidad = Auth::user()->unidad;
+        $userResponsable = Auth::user()->responsable;
+        $userResponsableId = Auth::user()->id;
+        $userTurno = Auth::user()->turno;
 
         // Generamos el registro
         $bitacora = new Bitacora();
@@ -208,7 +208,7 @@ class EstadoController extends Controller
         Mail::to($destinatarios)->send(new BitacoraNuevo($bitacora));
 
         // Redireccionamos a la vista
-        return redirect()->route('estadoCreate')->with('success', 'El evento se registro correctamente');
+        return redirect()->route('estadoIndex')->with('success', 'El evento se registro correctamente');
 
 
     }
