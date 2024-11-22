@@ -2,11 +2,26 @@
 
 @section('title', 'Dashboard')
 
+@section('plugins.Sweetalert2', true)
+
 @section('content_header')
     <h1><strong>Estado de Fuerza</strong> <small>Bitacoras</small></h1>
 @stop
 
 @section('content')
+
+@if(session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: 'Éxito',
+                text: "{{ session('success') }}",
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+        });
+    </script>
+@endif
 
 <div class="card">
     <div class="card-header">
