@@ -18,6 +18,7 @@ Route::get('/estadoCreate',[EstadoController::class,'estadoCreate'])->name('esta
 
 Route::post('/estadoStore',[EstadoController::class,'estadoStore'])->name('estadoStore');
 
+Route::get('/estadoShow/{id}',[EstadoController::class,'estadoShow'])->name('estadoShow');
 
 
 Route::get('/summernote',[EstadoController::class,'summernote'])->name('summernote');

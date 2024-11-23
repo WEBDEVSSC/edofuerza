@@ -32,6 +32,15 @@ class EstadoController extends Controller
         return view('estado.create');
     }
 
+    public function estadoShow($id)
+    {
+        // Consultamos los datos del registro
+        $bitacora = Bitacora::where('id', $id)->first();
+
+        // Mandamos los datos a la vista
+        return view('estado.show', compact('bitacora'));
+    }
+
     public function estadoStore(Request $request)
     {
         // Validamos los datos
