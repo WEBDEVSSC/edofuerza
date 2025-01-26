@@ -21,6 +21,8 @@ Route::post('/estadoStore',[EstadoController::class,'estadoStore'])->name('estad
 
 Route::get('/estadoShow/{id}',[EstadoController::class,'estadoShow'])->name('estadoShow');
 
+Route::get('/export', [EstadoController::class, 'export'])->name('export');
+
 Route::get('/summernote',[EstadoController::class,'summernote'])->name('summernote');
 
 /**
@@ -39,3 +41,15 @@ Route::get('/summernote',[EstadoController::class,'summernote'])->name('summerno
 
  // Ruta para almacenar los datos
  Route::post('admin/notificacion/store',[NotificacionController::class,'notificacionStore'])->name('notificacionStore');
+
+ // Ruta para mostrar las opciones del registro
+ Route::get('admin/notificacion/show/{id}',[NotificacionController::class,'notificacionShow'])->name('notificacionShow');
+
+ // Ruta para editar el registro
+ Route::get('admin/notificacion/edit/{id}',[NotificacionController::class,'notificacionEdit'])->name('notificacionEdit');
+
+ // Ruta para actualizar los datos
+ Route::put('admin/notificacion/update/{id}',[NotificacionController::class,'notificacionUpdate'])->name('notificacionUpdate');
+
+ // Ruta para eliminar un registro
+ Route::delete('admin/notificacion/delete/{id}',[NotificacionController::class,'notificacionDelete'])->name('notificacionDelete');

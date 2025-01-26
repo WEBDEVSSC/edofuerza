@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BitacoraExport;
 use App\Mail\BitacoraNuevo;
 use App\Models\Bitacora;
 use App\Models\Notificacion;
@@ -9,6 +10,7 @@ use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EstadoController extends Controller
 {
@@ -222,6 +224,10 @@ class EstadoController extends Controller
         // Redireccionamos a la vista
         return redirect()->route('estadoIndex')->with('success', 'El evento se registro correctamente');
 
+    }
 
+    public function export()
+    {
+        return Excel::download(new BitacoraExport, 'bitacora.xlsx');
     }
 }
