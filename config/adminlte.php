@@ -304,6 +304,11 @@ return [
             'url' => '/estadoIndex',
             'icon' => 'far fa-fw fa-file',
         ],
+        [
+            'text' => 'Notificaciones',
+            'url' => '/admin/notificacion/index',
+            'icon' => 'far fa-fw fa-file',
+        ],
     ],
 
     /*
@@ -392,7 +397,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@11',
                 ],
             ],
         ],

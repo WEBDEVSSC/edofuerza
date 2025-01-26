@@ -23,142 +23,288 @@
     </script>
 @endif
 
-@foreach ($bitacoras as $bitacora)
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>UNIDAD</th>
+            <th>TURNO</th>
+            <th class="vertical-text">Traumatología</th>
+            <th class="vertical-text">Médicina Interna</th>
+            <th class="vertical-text">Ginecología</th>
+            <th class="vertical-text">Cirugía</th>
+            <th class="vertical-text">Cardiología</th>
+            <th class="vertical-text">Hemodinamia</th>
+            <th class="vertical-text">Pediatría</th>
+            <th class="vertical-text">Urología</th>
+            <th class="vertical-text">Neurología</th>
+            <th class="vertical-text">Neurocirugía</th>
+            <th class="vertical-text">Anestesiología</th>
+            <th class="vertical-text">UCIN</th>
+            <th class="vertical-text">UCIA</th>
+            <th class="vertical-text">UTI</th>
+            <th class="vertical-text">TOCO</th>
+            <th class="vertical-text">Quirofano</th>
+            <th class="vertical-text">Hospital</th>
+            <th class="vertical-text">URG. Camas DISP.</th>
+            <th class="vertical-text">Cirugías</th>
+            <th class="vertical-text">Limpieza</th>
+            <th class="vertical-text">Seguridad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($bitacoras as $bitacora)
+            <tr>
+                <td><a href="{{ route('estadoShow', $bitacora->id) }}" class="btn btn-info btn-sm btn-block"><i class="fa-solid fa-circle-info text-white"></i></a></td>
+                <td>{{ $bitacora->unidad }}<br><small>{{ $bitacora->created_at->format('d-m-Y H:i:s') }}</small></td>
+                <td>{{ $bitacora->turno }}</td>
+                <td>
+                    @if ($bitacora->traumatologia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->medicina_interna == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->ginecologia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->cirugia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->cardiologia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->hemodinamia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->pediatria == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->urologia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->neurologia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->neurocirugia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->anestesiologia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->ucin == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->ucia == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->uti == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->toco == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->quirofano == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->hospital == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->num_camas_disponibles == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->cirugias_nombre_uno !== null)
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->limpieza == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+                <td>
+                    @if ($bitacora->seguridad == "SI")
+                        <button class="btn btn-success btn-sm btn-block">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    @else
+                        <button class="btn btn-danger btn-sm btn-block">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    @endif
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
 
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title"><strong>{{ $bitacora->unidad }}</strong> <small>{{ $bitacora->turno }}</small></h3>
-    </div>
-    <div class="card-body">
-
-        <!-- TRAUMATOLOGIA -->
-        @if ($bitacora->traumatologia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Traumatología">
-                <i class="fa-solid fa-crutch"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Traumatología">
-                <i class="fa-solid fa-crutch"></i>
-            </button>
-        @endif
-
-        <!-- MEDICINA INTERNA -->
-        @if ($bitacora->medicina_interna == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Médicina Interna">
-                <i class="fa-solid fa-stethoscope"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Médicina Interna">
-                <i class="fa-solid fa-stethoscope"></i>
-            </button>
-        @endif
-
-        <!-- GINECOLOGIA -->
-        @if ($bitacora->ginecologia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Ginecología">
-                <i class="fa-solid fa-bed-pulse"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Ginecología">
-                <i class="fa-solid fa-bed-pulse"></i>
-            </button>
-        @endif
-
-        <!-- CIRUGIA -->
-        @if ($bitacora->cirugia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Cirugía">
-                <i class="fa-solid fa-prescription"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Cirugía">
-                <i class="fa-solid fa-prescription"></i>
-            </button>
-        @endif
-
-        <!-- CARDIOLOGIA -->
-        @if ($bitacora->cardiologia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Cardiología">
-                <i class="fa-solid fa-heart"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Cardiología">
-                <i class="fa-solid fa-heart"></i>
-            </button>
-        @endif
-
-        <!-- HEMODINAMIA -->
-        @if ($bitacora->hemodinamia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Hemodinamia">
-                <i class="fa-solid fa-droplet"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Hemodinamia">
-                <i class="fa-solid fa-droplet"></i>
-            </button>
-        @endif
-
-        <!-- PEDIATRIA -->
-        @if ($bitacora->pediatria == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Pediatria">
-                <i class="fa-solid fa-person-breastfeeding"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Pediatria">
-                <i class="fa-solid fa-person-breastfeeding"></i>
-            </button>
-        @endif
-
-        <!-- UROLOGIA -->
-        @if ($bitacora->urologia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="UrologÍa">
-                <i class="fa-solid fa-user-nurse"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="UrologÍa">
-                <i class="fa-solid fa-user-nurse"></i>
-            </button>
-        @endif
-
-        <!-- NEUROLOGIA -->
-        @if ($bitacora->neurologia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Neurología">
-                <i class="fa-solid fa-brain"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Neurología">
-                <i class="fa-solid fa-brain"></i>
-            </button>
-        @endif
-
-        <!-- NEUROCIRUGIA -->
-        @if ($bitacora->neurocirugia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Neurocirugía">
-                <i class="fa-solid fa-head-side-virus"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Neurocirugía">
-                <i class="fa-solid fa-head-side-virus"></i>
-            </button>
-        @endif
-
-        <!-- ANESTESIOLOGIA -->
-        @if ($bitacora->anestesiologia == "SI")
-            <button class="btn btn-success btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Anestesiología">
-                <i class="fa-solid fa-syringe"></i>
-            </button>
-        @else
-            <button class="btn btn-danger btn-sm" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Anestesiología">
-                <i class="fa-solid fa-syringe"></i>
-            </button>
-        @endif
-
-    </div>
-    <div class="card-footer">
-        {{ $bitacora->created_at->format('d-m-Y H:i:s') }}
-    </div>
-</div>
-
-@endforeach
+@push('css')
+    <style>
+        .vertical-text {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: center;
+            white-space: nowrap;
+            text-transform: uppercase; 
+        }
+    </style>
+@endpush
     
 @stop
 

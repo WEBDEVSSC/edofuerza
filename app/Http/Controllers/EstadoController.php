@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\BitacoraNuevo;
 use App\Models\Bitacora;
+use App\Models\Notificacion;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -17,7 +18,7 @@ class EstadoController extends Controller
     public function estadoIndex()
     {
         // Cargamos todos los registros de la tabla BITACORAS
-        $bitacoras = Bitacora::all();
+        $bitacoras = Bitacora::orderBy('id', 'desc')->get();
 
         // Regresamos la ruta
         return view('estado.index', compact('bitacoras'));
@@ -212,8 +213,10 @@ class EstadoController extends Controller
 
         $bitacora->save();
 
-        // Enviamos el correo de alerta sobre el nuevo evento
-        $destinatarios = ['cesartorres.1688@gmail.com','segundonivel.ssc@gmail.com'];
+        // Consultamos los correos de notificacion
+        $destinatarios = Notificacion::pluck('email')->toArray();
+
+        // Enviamos los correos
         Mail::to($destinatarios)->send(new BitacoraNuevo($bitacora));
 
         // Redireccionamos a la vista

@@ -237,7 +237,7 @@
         <div class="row">
             <div class="col-md-3">
                 <p><strong>Número de camas disponibles</strong></p>
-                <input type="text" id="urgencias" name="urgencias" class="form-control" value="{{ old('urgencias') }}">
+                <input type="number" id="urgencias" name="urgencias" class="form-control" value="{{ old('urgencias') }}">
             </div>
             <div class="col-md-9">
                 <p><strong>Observaciones</strong></p>
