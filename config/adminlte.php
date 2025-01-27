@@ -309,6 +309,11 @@ return [
             'url' => '/admin/notificacion/index',
             'icon' => 'far fa-fw fa-file',
         ],
+        [
+            'text' => 'Reportes',
+            'url' => '/admin/reporte/index',
+            'icon' => 'far fa-fw fa-file',
+        ],
     ],
 
     /*

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\NotificacionController;
+use App\Http\Controllers\ReporteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,19 @@ Route::post('/estadoStore',[EstadoController::class,'estadoStore'])->name('estad
 
 Route::get('/estadoShow/{id}',[EstadoController::class,'estadoShow'])->name('estadoShow');
 
-Route::get('/export', [EstadoController::class, 'export'])->name('export');
+Route::post('/estadoExport', [EstadoController::class, 'estadoExport'])->name('estadoExport');
 
 Route::get('/summernote',[EstadoController::class,'summernote'])->name('summernote');
+
+/**
+ * 
+ * 
+ * REPORTES
+ * 
+ * 
+ */
+
+ Route::get('/admin/reporte/index',[ReporteController::class,'index'])->name('reporteIndex');
 
 /**
  * 

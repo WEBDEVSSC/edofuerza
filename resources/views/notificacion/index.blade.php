@@ -39,7 +39,6 @@
     <div class="card">
         <div class="card-header">
             <a href="{{ route('notificacionCreate') }}" class="btn btn-info btn-sm">NUEVO REGISTRO</a>
-            <a href="{{ route('export') }}" class="btn btn-success">Exportar Clues a Excel</a>
         </div>
         <div class="card-body">
             <table class="table table-bordered">

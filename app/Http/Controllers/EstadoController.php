@@ -6,6 +6,7 @@ use App\Exports\BitacoraExport;
 use App\Mail\BitacoraNuevo;
 use App\Models\Bitacora;
 use App\Models\Notificacion;
+use DateTime;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -226,8 +227,31 @@ class EstadoController extends Controller
 
     }
 
-    public function export()
+    public function estadoExport(Request $request)
     {
-        return Excel::download(new BitacoraExport, 'bitacora.xlsx');
+        $validated = $request->validate([
+            'inicio'=>'required|date',
+            'fin' => 'required|date|after_or_equal:inicio',
+        ],[
+            'inicio.required' => 'El campo es obligatorio',
+            'inicio.fin' => 'El campo es obligatorio',
+            'fin.after_or_equal' => 'La fecha de fin debe ser mayor o igual a la fecha de inicio.',
+        ]);
+
+        // Obtener las fechas de inicio y fin
+        $inicio = $validated['inicio'];
+        $fin = $validated['fin'];
+
+        // Crear un objeto DateTime con el formato 'Y-m-d'
+        $inicioDate = DateTime::createFromFormat('Y-m-d', $inicio);
+        $finDate = DateTime::createFromFormat('Y-m-d', $fin);
+
+        // Formatear la fecha en el formato 'd-m-Y'
+        $inicioFormatted = $inicioDate->format('d-m-Y');
+        $finFormatted = $finDate->format('d-m-Y');
+
+        // Exportar el archivo Excel
+        return Excel::download(new BitacoraExport($inicio, $fin), 'EstadoDeFuerza-'.$inicioFormatted.'-A-'.$finFormatted.'.xlsx');
+        
     }
 }
